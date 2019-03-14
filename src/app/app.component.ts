@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'warsawjs-masterclass-challenge-tag-cloud';
+  title = 'WarsawJS - Angular Masterclass';
+  subTitle = 'Challenge 3 : Tag Cloud';
 }
