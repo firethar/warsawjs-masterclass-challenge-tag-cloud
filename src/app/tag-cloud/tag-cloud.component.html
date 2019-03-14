@@ -1,6 +1,9 @@
 <div class="container">
-  <div class="cloud__wrapper">
-    <span *ngFor="let tag of tags" [style.fontSize.px]="tag.level">{{ tag.value }} </span>
+  <div class="cloud__wrapper" >
+    <div *ngIf="!error">
+      <span *ngFor="let tag of tags" [style.fontSize.px]="tag.level">{{ tag.value }} </span>
+    </div>
+    <div *ngIf="error"> {{ error }} </div>
   </div>
   <div class="thinking-man"><img class="thinking-man__img" src="../../assets/images/thinking-man.png" /></div>
 </div>

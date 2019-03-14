@@ -8,6 +8,7 @@ import { TagCloudService } from './tag-cloud.service';
 })
 export class TagCloudComponent implements OnInit {
   public tags = [];
+  public error: string = '';
 
   constructor(private allTags: TagCloudService) { }
 
@@ -15,6 +16,9 @@ export class TagCloudComponent implements OnInit {
     this.allTags.getTags()
       .subscribe((data:any[]) => {
         this.tags = data;
+      },
+      (error: any) => {
+        if (error) this.error = 'Wystąpił błąd. Spróbuj ponownie';
       });
   }
 
