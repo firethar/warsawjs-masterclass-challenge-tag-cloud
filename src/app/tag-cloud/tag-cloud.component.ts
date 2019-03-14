@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TagCloudService } from './tag-cloud.service';
 
 @Component({
   selector: 'app-tag-cloud',
@@ -8,24 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class TagCloudComponent implements OnInit {
   public tags = [];
 
-  constructor() { }
+  constructor(private allTags: TagCloudService) { }
 
-  displayTags():void {
-    this.tags = [
-      {
-        "level": 20,
-        "value": "Czerwony"
-      },
-      {
-        "level": 14,
-        "value": "Zielony"
-      },
-      {
-        "level": 30,
-        "value": "Niebieski"
-      }
-    ];
-  };
+  displayTags() {
+    this.allTags.getTags()
+      .subscribe((data:any[]) => {
+        this.tags = data;
+      });
+  }
 
   ngOnInit() {
     this.displayTags();
